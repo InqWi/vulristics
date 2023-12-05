@@ -21,8 +21,8 @@ data/
 !data/classification/products.json
 report/*.html
 reports/*.html
-reports/icons_company
-reports/icons_personal
+reports/icons_company/*
+reports/icons_personal/*
 
 # Style
 vulristics_code/data_report_configs.py

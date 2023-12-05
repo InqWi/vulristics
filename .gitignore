@@ -1,7 +1,15 @@
+# MacOS
 .DS_Store
-*.pyc
+
+# IDE
 .idea/
 venv/
+*.pyc
+
+# Input data
+input/
+
+# Output data
 data/ms_cve/*
 data/ms_search/*
 data/nvd_cve/*
@@ -11,4 +19,6 @@ data/vulners/*
 data/vulners_exploit/*
 report/*.html
 reports/*.html
+
+# Secrets
 credentials.py

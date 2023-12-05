@@ -1,24 +1,27 @@
-# MacOS
-.DS_Store
+# MacOS generated files
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+*.DS_Store
 
 # IDE
-.idea/
-venv/
+*.idea
+*.iml
+
+# Generated files
 *.pyc
+venv/
 
 # Input data
 input/
 
 # Output data
-data/ms_cve/*
-data/ms_search/*
-data/nvd_cve/*
-data/attackerkb_cve/*
-data/profiles/*
-data/vulners/*
-data/vulners_exploit/*
+data/
+!data/classification/products.json
 report/*.html
 reports/*.html
 
 # Secrets
 credentials.py
+.env

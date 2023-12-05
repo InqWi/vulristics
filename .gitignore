@@ -17,15 +17,15 @@ venv/
 input/
 
 # Output data
-data/
+data/*/*.json
 !data/classification/products.json
+
+# Reports style
+vulristics_code/data_report_configs.py
 report/*.html
 reports/*.html
-reports/icons_company/*
-reports/icons_personal/*
-
-# Style
-vulristics_code/data_report_configs.py
+reports/icons_*/*.png
+reports/icons_*/*/*.svg
 
 # Secrets
 credentials.py

@@ -30,3 +30,9 @@ reports/icons_*/*/*.svg
 # Secrets
 credentials.py
 .env
+
+# Feeds
+/feed
+
+# Playground
+/warroom

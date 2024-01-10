@@ -19,7 +19,7 @@
     },
     "ESXi": {
         "prevalence": 0.7,
-        "description": "",
+        "description": "VMware ESXi (formerly ESX) is an enterprise-class, type-1 hypervisor developed by VMware for deploying and serving virtual computers",
         "additional_detection_strings": []
     },
     "Pulse Connect Secure": {
@@ -49,11 +49,25 @@
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
-    "Confluence Server": {
+    "Confluence": {
         "prevalence": 0.7,
         "description": "Confluence is a web-based corporate wiki",
         "vendor": "Atlassian",
-        "additional_detection_strings": ["Confluence"]
+        "additional_detection_strings": []
+    },
+    "Cacti": {
+        "prevalence": 0.5,
+        "description": "Cacti is an open source operational monitoring and fault management framework",
+        "vendor": "The Cacti Group, Inc",
+        "additional_detection_strings": [],
+        "short_cpes": ["a:cacti:cacti"]
+    },
+    "Cobbler": {
+        "prevalence": 0.5,
+        "description": "Cobbler is a Linux provisioning server that facilitates and automates the network-based system installation of multiple computer operating systems from a central point using services such as DHCP, TFTP, and DNS",
+        "vendor": "Michael DeHaan",
+        "additional_detection_strings": [],
+        "short_cpes": ["a:cobblerd:cobbler "]
     },
     "macOS": {
         "prevalence": 0.7,
@@ -69,9 +83,12 @@
     },
     "Windows Win32k": {
         "prevalence": 0.9,
-        "description": "Windows kernel-mode driver",
+        "description": "The Win32k.sys driver is the kernel side of some core parts of the Windows subsystem. Its main functionality is the GUI of Windows; it's responsible for window management.",
+        "alternative_names": [
+            "Win32k", "Win32k.sys"
+        ],
         "additional_detection_strings": [
-            "Win32k"
+            "Win32k", "Win32k.sys"
         ],
         "vendor": "Microsoft"
     },
@@ -102,7 +119,7 @@
     },
     "Intel(R) Processor": {
         "prevalence": 0.9,
-        "description": "Processor",
+        "description": "Intel's processors from the pioneering 4-bit 4004 (1971) to the present high-end offerings",
         "vendor": "Intel",
         "additional_detection_strings": [
             "Intel(R) Processors"
@@ -138,9 +155,9 @@
     },
     "Kerberos": {
         "prevalence": 1,
-        "description": "",
+        "description": "Kerberos is a protocol for authenticating service requests between trusted hosts across an untrusted network, such as the internet",
         "additional_detection_strings": [],
-        "vendor": "Microsoft"
+        "vendor": "MIT"
     },
     "Microsoft Defender": {
         "prevalence": 0.8,
@@ -218,7 +235,7 @@
     },
     "Microsoft Outlook": {
         "prevalence": 0.6,
-        "description": "MS Office product",
+        "description": "Microsoft Outlook is a personal information manager software system from Microsoft, available as a part of the Microsoft 365 software suites",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
@@ -935,8 +952,9 @@
     },
     "Google Chrome": {
         "prevalence": 0.8,
-        "description": "Web browser",
-        "additional_detection_strings": []
+        "description": "Google Chrome is a popular, free web browser developed by Google. It was first released in 2008 and is available for various operating systems, including Microsoft Windows, Apple macOS, Linux, Android, and iOS.",
+        "additional_detection_strings": [],
+        "short_cpes": ["a:google:chrome"]
     },
     "Chromium": {
         "prevalence": 0.8,
@@ -1409,6 +1427,8 @@
     },
     "Windows Remote Desktop Protocol": {
         "prevalence": 0.8,
+        "detection_priority": -0.1,
+        "detection_priority_comment": "xrdp is an open source remote desktop protocol server",
         "description": "Windows component",
         "additional_detection_strings": [
             "Remote Desktop Protocol",
@@ -1483,7 +1503,7 @@
     },
     "Windows Common Log File System Driver": {
         "prevalence": 0.8,
-        "description": "Windows component",
+        "description": "Common Log File System is a general-purpose logging subsystem that is accessible to both kernel-mode as well as user-mode applications for building high-performance transaction logs",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
@@ -1768,6 +1788,8 @@
     },
     "Curl": {
         "prevalence": 0.7,
+        "detection_priority": -0.1,
+        "detection_priority_comment": "...other major HTTP client implementations like curl and web browsers...",
         "description": "Curl is a command-line tool for transferring data specified with URL syntax",
         "additional_detection_strings": []
     },
@@ -1870,6 +1892,7 @@
     "Microsoft Exchange": {
         "prevalence": 0.8,
         "description": "Microsoft Exchange Server is a mail server and calendaring server developed by Microsoft",
+        "alternative_names": ["Microsoft Exchange Server"],
         "additional_detection_strings": [
             "Exchange Server"
         ],
@@ -2006,7 +2029,10 @@
     },
     "Python": {
         "prevalence": 0.6,
+        "detection_priority": -0.1,
+        "detection_comment": "...code to import Python modules...",
         "description": "Python is a high-level, general-purpose programming language",
+        "short_cpes": ["a:python:python"],
         "additional_detection_strings": [
         ]
     },
@@ -2708,6 +2734,14 @@
         "description": "Windows component",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
+    },
+    "OpenSSH": {
+        "detection_priority": 2,
+        "detection_priority_comment": "CVE-2023-48795 The SSH transport protocol with certain OpenSSH extensions...",
+        "prevalence": 0.8,
+        "description": "OpenSSH is a suite of secure networking utilities based on the Secure Shell protocol, which provides a secure channel over an unsecured network in a client–server architecture",
+        "additional_detection_strings": [],
+        "vendor": "OpenBSD Project"
     },
     "OpenSSH for Windows": {
         "prevalence": 0.8,
@@ -5169,8 +5203,16 @@
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
+    "Xrdp": {
+        "prevalence": 0.5,
+        "description": "xrdp is an open source remote desktop protocol server",
+        "additional_detection_strings": [],
+        "vendor": "neutrinolabs"
+    },
     "Remote Desktop Protocol Server": {
         "prevalence": 0.5,
+        "detection_priority": -0.1,
+        "detection_priority_comment": "xrdp is an open source remote desktop protocol server",
         "description": "",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
@@ -5744,6 +5786,7 @@
         "additional_detection_strings": [
             "Log4j2", "Log4j 2"
         ],
+        "short_cpes": ["a:apache:log4j"],
         "vendor": "Apache"
     },
     "GitLab": {
@@ -5761,9 +5804,16 @@
     "Cisco IOS": {
         "prevalence": 0.8,
         "description": "The Internetworking Operating System is a family of proprietary network operating systems used on several router and network switch models manufactured by Cisco Systems",
-        "additional_detection_strings": [
-            "Cisco"
-        ]
+        "additional_detection_strings": [],
+        "vendor": "Cisco"
+    },
+    "Cisco IOS XE": {
+        "detection_priority": 0.3,
+        "detection_priority_comment": "more than Cisco IOS",
+        "prevalence": 0.8,
+        "description": "IOS XE is a release train of Cisco Systems built on Linux and that provides a distributed software architecture that moves many operating system responsibilities out of the IOS process and has a copy of IOS running as a separate process",
+        "additional_detection_strings": [],
+        "vendor": "Cisco"
     },
     "Sitecore Experience Platform (XP)": {
         "prevalence": 0.6,
@@ -5814,6 +5864,12 @@
         "additional_detection_strings": [
             "vCenter"
         ],
+        "vendor": "VMware"
+    },
+     "VMware Tools": {
+        "prevalence": 0.7,
+        "description": "VMware Tools is a set of services and modules that enable several features in VMware products for better management of, and seamless user interactions with, guests operating systems",
+        "additional_detection_strings": [],
         "vendor": "VMware"
     },
     "VMware SD-WAN": {
@@ -6024,7 +6080,7 @@
     },
     "Windows SmartScreen": {
         "prevalence": 0.8,
-        "description": "Windows component",
+        "description": "SmartScreen is a cloud-based anti-phishing and anti-malware component included in several Microsoft products, including operating systems Windows 8 and later, the applications Internet Explorer, Microsoft Edge",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
@@ -6075,6 +6131,12 @@
         "description": "",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
+    },
+    "DEFAULT_CPE_detected_product": {
+        "prevalence": 0.5,
+        "description": "",
+        "additional_detection_strings": [],
+        "vendor": ""
     },
     "Windows Client Server Run-Time Subsystem (CSRSS)": {
         "prevalence": 0.8,
@@ -6166,7 +6228,26 @@
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
+    "Microsoft Identity": {
+        "prevalence": 0.5,
+        "description": "",
+        "additional_detection_strings": [],
+        "vendor": "Microsoft"
+    },
+    "SQLite": {
+        "prevalence": 0.7,
+        "description": "SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine",
+        "additional_detection_strings": [],
+        "short_cpes": ["a:sqlite:sqlite"],
+        "vendor": "SQLite Consortium"
+    },
     "Windows Active Directory Domain Services API": {
+        "prevalence": 0.8,
+        "description": "Windows component",
+        "additional_detection_strings": [],
+        "vendor": "Microsoft"
+    },
+    "Windows CoreMessaging": {
         "prevalence": 0.8,
         "description": "Windows component",
         "additional_detection_strings": [],
@@ -6466,7 +6547,7 @@
         "additional_detection_strings": [],
         "vendor": "Autodesk"
     },
-    "Junos OS": {
+    "Juniper JunOS": {
         "prevalence": 0.8,
         "description": "Junos OS is a FreeBSD-based network operating system used in Juniper Networks routing, switching and security devices",
         "additional_detection_strings": ["Junos", "JunOS"],
@@ -6500,6 +6581,7 @@
         "prevalence": 0.8,
         "description": "WinRAR is a trialware file archiver utility for Windows, developed by Eugene Roshal of win.rar GmbH",
         "additional_detection_strings": [],
+        "short_cpes": ["a:rarlab:winrar"],
         "vendor": "RARLabs"
     },
     "Bouncy Castle": {
@@ -6623,6 +6705,12 @@
         "description": "MediaWiki is a free server-based wiki software, licensed under the GNU General Public License (GPL)",
         "additional_detection_strings": ["Mediawiki"],
         "vendor": "Wikimedia Foundation"
+    },
+     "Safari": {
+        "prevalence": 0.8,
+        "description": "Safari is a web browser developed by Apple. It is built into Apple's operating systems, including macOS, iOS, iPadOS and their upcoming VisionOS, and uses Apple's open-source browser engine WebKit, which was derived from KHTML.",
+        "additional_detection_strings": [],
+        "vendor": "Apple"
     },
      "Webkit": {
         "prevalence": 0.8,
@@ -6825,7 +6913,8 @@
         "type_of_product": "desktop application",
         "directly_accessible_from_the_internet": "never",
         "type_of_license": "commercial",
-        "country_of_origin": "USA"
+        "country_of_origin": "USA",
+        "short_cpes": ["a:3cx:3cx"]
     },
     "Redis": {
         "prevalence": 0.6,
@@ -6859,7 +6948,8 @@
         "type_of_product": "server application",
         "directly_accessible_from_the_internet": "rarely",
         "type_of_license": "commercial",
-        "country_of_origin": "USA"
+        "country_of_origin": "USA",
+        "short_cves": ["a:veeam:backup_\\\\&_replication"]
     },
     "Oracle Web Applications Desktop Integrator": {
         "prevalence": 0.5,
@@ -6929,7 +7019,8 @@
         "type_of_license": "commercial",
         "language": "PHP",
         "country_of_origin": "Russia",
-        "poduct_url": "https://www.1c-bitrix.ru/products/cms/"
+        "poduct_url": "https://www.1c-bitrix.ru/products/cms/",
+        "short_cpes": ["a:bitrix24:bitrix24"]
     },
     "vm2": {
         "prevalence": 0.6,
@@ -6970,6 +7061,19 @@
         "country_of_origin": "USA",
         "poduct_url": "https://kubernetes.io/"
     },
+    "Struts": {
+        "prevalence": 0.7,
+        "description": "Apache Struts is a free, open-source, MVC framework for creating elegant, modern Java web applications. It favors convention over configuration, is extensible using a plugin architecture, and ships with plugins to support REST, AJAX and JSON",
+        "additional_detection_strings": ["Struts"],
+        "vendor": "The Apache Software Foundation",
+        "type_of_product": "web application",
+        "directly_accessible_from_the_internet": "often",
+        "type_of_license": "open source",
+        "license": "Apache License 2.0",
+        "language": "Java",
+        "country_of_origin": "USA",
+        "poduct_url": "https://struts.apache.org/"
+    },
     "Forminator plugin for WordPress": {
         "prevalence": 0.4,
         "description": "Forminator is a form builder plugin that provides you with all the functionality you need to create contact forms, quizzes, and polls",
@@ -6981,6 +7085,18 @@
         "language": "PHP",
         "country_of_origin": "USA",
         "poduct_url": "https://wordpress.org/plugins/forminator/"
+    },
+    "Backup Migration plugin for WordPress": {
+        "prevalence": 0.4,
+        "description": "This plugin is all in one solution if you need to migrate your site to another host or just restore the local backup",
+        "additional_detection_strings": [],
+        "vendor": "BackupBliss",
+        "type_of_product": "web application",
+        "directly_accessible_from_the_internet": "always",
+        "type_of_license": "commercial",
+        "language": "PHP",
+        "country_of_origin": "USA",
+        "poduct_url": "https://wordpress.org/plugins/backup-backup/"
     },
     "Winbiz Payment module for PrestaShop": {
         "prevalence": 0.4,
@@ -7018,5 +7134,78 @@
         "language": "PHP, Javascript, Go",
         "country_of_origin": "Germany",
         "poduct_url": "https://owncloud.com/"
+    },
+    "Acronis Cyber Protect": {
+        "prevalence": 0.5,
+        "description": "Acronis Cyber Protect offers a variety of cybersecurity, data protection, and endpoint protection management features",
+        "additional_detection_strings": [],
+        "vendor": "Acronis",
+        "type_of_product": "desktop application",
+        "directly_accessible_from_the_internet": "never",
+        "type_of_license": "commercial",
+        "country_of_origin": "Singapore",
+        "poduct_url": "https://www.acronis.com/en-us/products/cyber-protect/"
+    },
+    "Barracuda Email Security Gateway": {
+        "prevalence": 0.5,
+        "description": "The Barracuda Email Security Gateway is an email security gateway that manages and filters all inbound and outbound email traffic to protect organizations from email-borne threats and data leaks",
+        "additional_detection_strings": [],
+        "vendor": "Barracuda Networks",
+        "type_of_product": "server application",
+        "directly_accessible_from_the_internet": "often",
+        "type_of_license": "commercial",
+        "country_of_origin": "USA",
+        "poduct_url": "https://campus.barracuda.com/product/emailsecuritygateway/"
+    },
+    "GoAnywhere Managed File Transfery": {
+        "prevalence": 0.6,
+        "description": "GoAnywhere MFT is a secure managed file transfer software solution that streamlines the exchange of data between systems, employees, customers, and trading partners",
+        "additional_detection_strings": ["GoAnywhere MFT"],
+        "vendor": "Fortra, LLC",
+        "type_of_product": "server application",
+        "directly_accessible_from_the_internet": "often",
+        "type_of_license": "commercial",
+        "country_of_origin": "USA",
+        "short_cpes": ["a:fortra:goanywhere_managed_file_transfer"],
+        "poduct_url": "https://www.goanywhere.com/products/goanywhere-mft-vwo/"
+    },
+    "PaperCut NG": {
+        "prevalence": 0.6,
+        "description": "PaperCut NG is a comprehensive print management system designed to seamlessly monitor and control your resources with easy to use administrative and user tools that can be securely accessed from anywhere on the network though a web browser",
+        "additional_detection_strings": ["PaperCut NG"],
+        "vendor": "Info Technology Supply Ltd",
+        "type_of_product": "web application",
+        "directly_accessible_from_the_internet": "seldom",
+        "type_of_license": "commercial",
+        "country_of_origin": "UK",
+        "short_cpes": ["a:papercut:papercut_ng"],
+        "poduct_url": "https://www.printandcopycontrol.com/en/products/papercut-mf"
+    },
+    "SugarCRM": {
+        "prevalence": 0.6,
+        "description": "SugarCRM is a comprehensive Customer Relationship Management (CRM) platform designed to connect your sales, marketing, and service teams",
+        "additional_detection_strings": [],
+        "vendor": "SugarCRM",
+        "type_of_product": "web application",
+        "directly_accessible_from_the_internet": "seldom",
+        "type_of_license": "commercial",
+        "country_of_origin": "USA",
+        "short_cpes": ["a:sugarcrm:sugarcrm"],
+        "poduct_url": "https://www.sugarcrm.com"
+    },
+    "MOVEit Transfer": {
+        "prevalence": 0.6,
+        "detection_priority": 2,
+        "detection_priority_comment": "More than Microsoft SQL Server",
+        "description": "Progress MOVEit is a secure Managed File Transfer (MFT) software. MOVEit enables organizations to meet compliance standards, easily ensure the reliability of core business processes, and secure the transfer of sensitive data between partners, customers, users and systems.",
+        "additional_detection_strings": [
+            "Progress MOVEit Transfer"
+        ],
+        "vendor": "Progress Software",
+        "type_of_product": "web application",
+        "directly_accessible_from_the_internet": "often",
+        "type_of_license": "commercial",
+        "country_of_origin": "USA",
+        "poduct_url": "https://www.ipswitch.com/moveit-transfer"
     }
 }

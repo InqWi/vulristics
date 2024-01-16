@@ -21,12 +21,12 @@ data/*/*.json
 !data/classification/products.json
 
 # Reports style
+!reports/template.html
 vulristics_code/data_report_configs.py
 report/*.html
 reports/*.html
 reports/icons_*/*.png
-reports/icons_*/*/*.svg
-!reports/template.html
+reports/icons_*/*.svg
 
 # Secrets
 credentials.py

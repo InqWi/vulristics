@@ -22,13 +22,14 @@
         "description": "VMware ESXi (formerly ESX) is an enterprise-class, type-1 hypervisor developed by VMware for deploying and serving virtual computers",
         "additional_detection_strings": []
     },
-    "Pulse Connect Secure": {
+    "Ivanti Connect Secure": {
         "prevalence": 0.7,
-        "description": "Pulse Connect Secure provides a seamless, cost-effective, SSL VPN solution for remote and mobile users from any web- enabled device to corporate resources",
+        "description": "Ivanti Connect Secure (Pulse Connect Secure) provides a seamless, cost-effective, SSL VPN solution for remote and mobile users from any web- enabled device to corporate resources",
         "vendor": "Ivanti",
         "additional_detection_strings": [
-            "Ivanti Connect Secure"
-        ]
+            "Pulse Connect Secure", "Ivanti ICS"
+        ],
+        "short_cpes": ["a:ivanti:connect_secure"]
     },
     "Zimbra Collaboration Suite": {
         "prevalence": 0.7,
@@ -71,15 +72,42 @@
     },
     "macOS": {
         "prevalence": 0.7,
-        "detection_priority": -0.1,
-        "detection_comment": "Lower priority for third party software",
+        "detection_priority": -1,
+        "detection_priority_comment": "Less than third-party",
         "description": "macOS is an operating system developed and marketed by Apple Inc",
         "additional_detection_strings": [],
         "vendor": "Apple Inc", 
         "type_of_product": "operating system",
         "directly_accessible_from_the_internet": "never",
         "type_of_license": "commercial",
-        "country_of_origin": "USA"
+        "country_of_origin": "USA",
+        "short_cpes":["o:apple:mac_os_x", "o:apple:macos"]
+    },
+    "iPadOS": {
+        "prevalence": 0.7,
+        "detection_priority": -1.5,
+        "detection_priority_comment": "Less than third-party and macOS",
+        "description": "iPadOS is an operating system developed and marketed by Apple Inc",
+        "additional_detection_strings": [],
+        "vendor": "Apple Inc",
+        "type_of_product": "operating system",
+        "directly_accessible_from_the_internet": "never",
+        "type_of_license": "commercial",
+        "country_of_origin": "USA",
+        "short_cpes":["o:apple:ipados"]
+    },
+    "iOS": {
+        "prevalence": 0.7,
+        "detection_priority": -10,
+        "detection_priority_comment": "Less than third-party and macOS; less than any products withi 'IOS' in name",
+        "description": "iOS is an operating system developed and marketed by Apple Inc",
+        "additional_detection_strings": [],
+        "vendor": "Apple Inc",
+        "type_of_product": "operating system",
+        "directly_accessible_from_the_internet": "never",
+        "type_of_license": "commercial",
+        "country_of_origin": "USA",
+        "short_cpes":["o:apple:iphone_os"]
     },
     "Windows Win32k": {
         "prevalence": 0.9,
@@ -205,9 +233,15 @@
     },
     "Microsoft Word": {
         "prevalence": 0.6,
-        "detection_priority": -0.2,
-        "detection_comment": "WordPad",
-        "description": "MS Office product",
+        "description": "Microsoft Word is a widely used commercial word processor developed by Microsoft. It is a component of the Microsoft Office suite of productivity software but can also be purchased as a standalone product.",
+        "additional_detection_strings": [],
+        "vendor": "Microsoft"
+    },
+    "Microsoft WordPad": {
+        "prevalence": 0.6,
+        "detection_priority": 1,
+        "detection_comment": "More than Microsoft Word",
+        "description": "Microsoft WordPad is a basic word processing program that comes pre-installed with Microsoft Windows. It is a simpler alternative to Microsoft Word, offering basic functionality for creating and editing documents.",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
@@ -6228,26 +6262,7 @@
         "additional_detection_strings": [],
         "vendor": "Microsoft"
     },
-    "Microsoft Identity": {
-        "prevalence": 0.5,
-        "description": "",
-        "additional_detection_strings": [],
-        "vendor": "Microsoft"
-    },
-    "SQLite": {
-        "prevalence": 0.7,
-        "description": "SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine",
-        "additional_detection_strings": [],
-        "short_cpes": ["a:sqlite:sqlite"],
-        "vendor": "SQLite Consortium"
-    },
     "Windows Active Directory Domain Services API": {
-        "prevalence": 0.8,
-        "description": "Windows component",
-        "additional_detection_strings": [],
-        "vendor": "Microsoft"
-    },
-    "Windows CoreMessaging": {
         "prevalence": 0.8,
         "description": "Windows component",
         "additional_detection_strings": [],
@@ -6700,6 +6715,13 @@
         "additional_detection_strings": [],
         "vendor": "MariaDB Foundation"
     },
+     "SQLite": {
+        "prevalence": 0.7,
+        "description": "SQLite is a database engine written in the C programming language",
+        "additional_detection_strings": [],
+        "short_cpes": ["a:sqlite:sqlite"],
+        "vendor": "D. Richard Hipp"
+    },
      "MediaWiki": {
         "prevalence": 0.7,
         "description": "MediaWiki is a free server-based wiki software, licensed under the GNU General Public License (GPL)",
@@ -6708,6 +6730,8 @@
     },
      "Safari": {
         "prevalence": 0.8,
+        "detection_priority": 0.3,
+        "detection_priority_comment": "More rare than macOS",
         "description": "Safari is a web browser developed by Apple. It is built into Apple's operating systems, including macOS, iOS, iPadOS and their upcoming VisionOS, and uses Apple's open-source browser engine WebKit, which was derived from KHTML.",
         "additional_detection_strings": [],
         "vendor": "Apple"
@@ -6893,7 +6917,7 @@
         "directly_accessible_from_the_internet": "always",
         "type_of_license": "freeware",
         "country_of_origin": "Bangladesh",
-        "poduct_url": "https://wordpress.org/plugins/essential-addons-for-elementor-lite/"
+        "product_url": "https://wordpress.org/plugins/essential-addons-for-elementor-lite/"
     },
     "Aria Operations for Networks": {
         "prevalence": 0.5,
@@ -6982,7 +7006,7 @@
         "license": "GPL",
         "language": "PHP",
         "country_of_origin": "USA",
-        "poduct_url": "https://wordpress.org/plugins/woocommerce-payments/"
+        "product_url": "https://wordpress.org/plugins/woocommerce-payments/"
     },
     "Ultimate Member plugin for WordPress": {
         "prevalence": 0.4,
@@ -6995,7 +7019,7 @@
         "license": "GPL",
         "language": "PHP",
         "country_of_origin": "USA",
-        "poduct_url": "https://wordpress.org/plugins/ultimate-member/"
+        "product_url": "https://wordpress.org/plugins/ultimate-member/"
     },
     "Bitrix Site Manager": {
         "prevalence": 0.4,
@@ -7007,7 +7031,7 @@
         "type_of_license": "commercial",
         "language": "PHP",
         "country_of_origin": "Russia",
-        "poduct_url": "https://www.1c-bitrix.ru/products/cms/"
+        "product_url": "https://www.1c-bitrix.ru/products/cms/"
     },
     "Bitrix24": {
         "prevalence": 0.4,
@@ -7019,7 +7043,7 @@
         "type_of_license": "commercial",
         "language": "PHP",
         "country_of_origin": "Russia",
-        "poduct_url": "https://www.1c-bitrix.ru/products/cms/",
+        "product_url": "https://www.1c-bitrix.ru/products/cms/",
         "short_cpes": ["a:bitrix24:bitrix24"]
     },
     "vm2": {
@@ -7033,7 +7057,7 @@
         "license": "MIT",
         "language": "JavaScript",
         "country_of_origin": "USA",
-        "poduct_url": "https://www.npmjs.com/package/vm2"
+        "product_url": "https://www.npmjs.com/package/vm2"
     },
     "Exim": {
         "prevalence": 0.6,
@@ -7046,7 +7070,8 @@
         "license": "GPL",
         "language": "C",
         "country_of_origin": "USA",
-        "poduct_url": "https://www.npmjs.com/package/vm2"
+        "short_cpes": ["a:exim:exim"],
+        "product_url": "https://www.npmjs.com/package/vm2"
     },
     "Kubernetes": {
         "prevalence": 0.7,
@@ -7059,7 +7084,7 @@
         "license": "Apache License 2.0",
         "language": "Go",
         "country_of_origin": "USA",
-        "poduct_url": "https://kubernetes.io/"
+        "product_url": "https://kubernetes.io/"
     },
     "Struts": {
         "prevalence": 0.7,
@@ -7072,7 +7097,7 @@
         "license": "Apache License 2.0",
         "language": "Java",
         "country_of_origin": "USA",
-        "poduct_url": "https://struts.apache.org/"
+        "product_url": "https://struts.apache.org/"
     },
     "Forminator plugin for WordPress": {
         "prevalence": 0.4,
@@ -7084,7 +7109,7 @@
         "type_of_license": "commercial",
         "language": "PHP",
         "country_of_origin": "USA",
-        "poduct_url": "https://wordpress.org/plugins/forminator/"
+        "product_url": "https://wordpress.org/plugins/forminator/"
     },
     "Backup Migration plugin for WordPress": {
         "prevalence": 0.4,
@@ -7096,7 +7121,7 @@
         "type_of_license": "commercial",
         "language": "PHP",
         "country_of_origin": "USA",
-        "poduct_url": "https://wordpress.org/plugins/backup-backup/"
+        "product_url": "https://wordpress.org/plugins/backup-backup/"
     },
     "Winbiz Payment module for PrestaShop": {
         "prevalence": 0.4,
@@ -7108,7 +7133,7 @@
         "type_of_license": "commercial",
         "language": "PHP",
         "country_of_origin": "Czech Republic",
-        "poduct_url": "https://shop.webbax.ch/modules-pour-winbiz/136-module-prestashop-winbiz-payment.html"
+        "product_url": "https://shop.webbax.ch/modules-pour-winbiz/136-module-prestashop-winbiz-payment.html"
     },
     "Roundcube": {
         "prevalence": 0.6,
@@ -7121,7 +7146,7 @@
         "license": "GPL-3.0-or-later with exceptions for skins and plugins",
         "language": "PHP, JavaScript",
         "country_of_origin": "USA",
-        "poduct_url": "https://roundcube.net/"
+        "product_url": "https://roundcube.net/"
     },
     "ownCloud": {
         "prevalence": 0.6,
@@ -7133,7 +7158,7 @@
         "type_of_license": "commercial",
         "language": "PHP, Javascript, Go",
         "country_of_origin": "Germany",
-        "poduct_url": "https://owncloud.com/"
+        "product_url": "https://owncloud.com/"
     },
     "Acronis Cyber Protect": {
         "prevalence": 0.5,
@@ -7144,7 +7169,7 @@
         "directly_accessible_from_the_internet": "never",
         "type_of_license": "commercial",
         "country_of_origin": "Singapore",
-        "poduct_url": "https://www.acronis.com/en-us/products/cyber-protect/"
+        "product_url": "https://www.acronis.com/en-us/products/cyber-protect/"
     },
     "Barracuda Email Security Gateway": {
         "prevalence": 0.5,
@@ -7155,7 +7180,7 @@
         "directly_accessible_from_the_internet": "often",
         "type_of_license": "commercial",
         "country_of_origin": "USA",
-        "poduct_url": "https://campus.barracuda.com/product/emailsecuritygateway/"
+        "product_url": "https://campus.barracuda.com/product/emailsecuritygateway/"
     },
     "GoAnywhere Managed File Transfery": {
         "prevalence": 0.6,
@@ -7167,7 +7192,7 @@
         "type_of_license": "commercial",
         "country_of_origin": "USA",
         "short_cpes": ["a:fortra:goanywhere_managed_file_transfer"],
-        "poduct_url": "https://www.goanywhere.com/products/goanywhere-mft-vwo/"
+        "product_url": "https://www.goanywhere.com/products/goanywhere-mft-vwo/"
     },
     "PaperCut NG": {
         "prevalence": 0.6,
@@ -7179,7 +7204,7 @@
         "type_of_license": "commercial",
         "country_of_origin": "UK",
         "short_cpes": ["a:papercut:papercut_ng"],
-        "poduct_url": "https://www.printandcopycontrol.com/en/products/papercut-mf"
+        "product_url": "https://www.printandcopycontrol.com/en/products/papercut-mf"
     },
     "SugarCRM": {
         "prevalence": 0.6,
@@ -7191,7 +7216,7 @@
         "type_of_license": "commercial",
         "country_of_origin": "USA",
         "short_cpes": ["a:sugarcrm:sugarcrm"],
-        "poduct_url": "https://www.sugarcrm.com"
+        "product_url": "https://www.sugarcrm.com"
     },
     "MOVEit Transfer": {
         "prevalence": 0.6,
@@ -7206,6 +7231,25 @@
         "directly_accessible_from_the_internet": "often",
         "type_of_license": "commercial",
         "country_of_origin": "USA",
-        "poduct_url": "https://www.ipswitch.com/moveit-transfer"
+        "product_url": "https://www.ipswitch.com/moveit-transfer"
+    },
+    "Jenkins": {
+        "prevalence": 0.6,
+        "description": "Jenkins is an open source automation server. It helps automate the parts of software development related to building, testing, and deploying, facilitating continuous integration, and continuous delivery.",
+        "additional_detection_strings": [],
+        "vendor": "Jenkins Community",
+        "type_of_product": "web application",
+        "type_of_license": "open source",
+        "license": "MIT License",
+        "language": "Java",
+        "country_of_origin": "USA",
+        "short_cpes": ["a:jenkins:jenkins"],
+        "product_url": "www.jenkins.io"
+    },
+    "Cisco ASA": {
+        "prevalence": 0.8,
+        "description": "A family of network security devices from Cisco that provide firewall, intrusion prevention (IPS) and virtual private network (VPN) capabilities",
+        "additional_detection_strings": [],
+        "vendor": "Cisco"
     }
 }

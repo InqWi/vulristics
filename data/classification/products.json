@@ -6,6 +6,8 @@
     },
     "Sudo": {
         "prevalence": 0.9,
+        "detection_priority": -1,
+        "detection_priority_comment": "Composer being run with sudo, Pipelines which may execute Composer on untrusted projects",
         "description": "Sudo is a program for Unix-like computer operating systems that allows users to run programs with the security privileges of another user",
         "additional_detection_strings": [
             "visudo",
@@ -1988,6 +1990,12 @@
         "vendor": "Fortinet",
         "additional_detection_strings": []
     },
+    "FortiClientEMS": {
+        "prevalence": 0.5,
+        "description": "FortiClient EMS provides efficient and effective administration of endpoints running FortiClient (a Fabric Agent that delivers protection, compliance, and secure access in a single, modular lightweight client)",
+        "vendor": "Fortinet",
+        "additional_detection_strings": []
+    },
     "QNAP NAS": {
         "prevalence": 0.5,
         "description": "A QNAP NAS is a powerful device that allows you to store and share files and access them from anywhere in the world",
@@ -2264,6 +2272,13 @@
         "description": "An open-source, server-side web-application framework designed for web development",
         "additional_detection_strings": [],
         "vendor": "Microsoft"
+    },
+    "DNSSEC": {
+        "detection_priority": -1,
+        "prevalence": 0.5,
+        "description": "The Domain Name System Security Extensions (DNSSEC) is a feature of the Domain Name System (DNS) that authenticates responses to domain name lookups",
+        "additional_detection_strings": [],
+        "vendor": "IETF"
     },
     "Microsoft Dynamics 365": {
         "prevalence": 0.5,
@@ -5734,6 +5749,8 @@
         "vendor": "Microsoft"
     },
     "HTTP V3": {
+        "detection_priority": -1,
+        "detection_priority_comment": "aiohttp v3.8.4 ",
         "prevalence": 0.5,
         "description": "",
         "additional_detection_strings": [],
@@ -6167,6 +6184,12 @@
         "vendor": "Microsoft"
     },
     "DEFAULT_CPE_detected_product": {
+        "prevalence": 0.5,
+        "description": "",
+        "additional_detection_strings": [],
+        "vendor": ""
+    },
+    "DEFAULT_Directly_Set_product": {
         "prevalence": 0.5,
         "description": "",
         "additional_detection_strings": [],
@@ -6709,11 +6732,30 @@
         "additional_detection_strings": [],
         "vendor": "QEMU"
     },
+     "ScreenConnect": {
+        "prevalence": 0.7,
+        "description": "Screenconnect, is a self-hosted remote desktop software application that permits the primary user to host the software on their own servers, PC, virtual machine (VM), or virtual private server (VPS)",
+        "additional_detection_strings": [],
+        "short_cpes": ["a:connectwise:screenconnect"],
+        "vendor": "ConnectWise"
+    },
      "MariaDB": {
         "prevalence": 0.7,
         "description": "MariaDB is a community-developed, commercially supported fork of the MySQL relational database management system, intended to remain free and open-source software under the GNU General Public License",
         "additional_detection_strings": [],
         "vendor": "MariaDB Foundation"
+    },
+    "Oracle MySQL": {
+        "prevalence": 0.7,
+        "description": "MySQL is an open-source relational database management system",
+        "additional_detection_strings": [],
+        "vendor": "Oracle"
+    },
+    "BIND": {
+        "prevalence": 0.7,
+        "description": "BIND is a suite of software for interacting with the Domain Name System",
+        "additional_detection_strings": [],
+        "vendor": "Internet Systems Consortium"
     },
      "SQLite": {
         "prevalence": 0.7,
@@ -6785,6 +6827,15 @@
         "description": "libxml2 is an XML toolkit implemented in C, originally developed for the GNOME Project",
         "additional_detection_strings": [],
         "vendor": "GNOME Project"
+    },
+     "PHP": {
+        "prevalence": 0.8,
+        "detection_priority": -1,
+        "detection_priority_comment": "it's better to detect a product rather than a programming language",
+        "description": "PHP is a general-purpose scripting language geared towards web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1993 and released in 1995.",
+        "additional_detection_strings": [],
+        "short_cpes": ["a:php:php"],
+        "vendor": "Rasmus Lerdorf"
     },
      "tiffcrop": {
         "prevalence": 0.6,
@@ -7033,6 +7084,18 @@
         "country_of_origin": "Russia",
         "product_url": "https://www.1c-bitrix.ru/products/cms/"
     },
+    "1С-Битрикс: Управление сайтом": {
+        "prevalence": 0.7,
+        "description": "Система управления контентом веб-проекта (CMS) для сайтов и интернет-магазинов",
+        "additional_detection_strings": [],
+        "vendor": "Bitrix",
+        "type_of_product": "web application",
+        "directly_accessible_from_the_internet": "often",
+        "type_of_license": "commercial",
+        "language": "PHP",
+        "country_of_origin": "Russia",
+        "product_url": "https://www.1c-bitrix.ru/products/cms/"
+    },
     "Bitrix24": {
         "prevalence": 0.4,
         "description": "The Bitrix Site Manager is a web content management and digital marketing solution for SMBs offering content management, e-marketing and e-commerce capabilities",
@@ -7249,7 +7312,7 @@
     "Cisco ASA": {
         "prevalence": 0.8,
         "description": "A family of network security devices from Cisco that provide firewall, intrusion prevention (IPS) and virtual private network (VPN) capabilities",
-        "additional_detection_strings": [],
+        "additional_detection_strings": ["Cisco Adaptive Security Appliance"],
         "vendor": "Cisco"
     }
 }
